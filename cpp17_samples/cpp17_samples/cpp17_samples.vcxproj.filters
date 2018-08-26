@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\samples">
+      <UniqueIdentifier>{b97e37cd-1163-43d9-9c62-668935e26fce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\samples\parallels">
+      <UniqueIdentifier>{3811e300-5d23-4e38-9d82-9192978b638d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\samples\fs">
+      <UniqueIdentifier>{2f0e2760-40d9-4fdd-aeed-5a8978619244}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -24,6 +33,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parallel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="util_types.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

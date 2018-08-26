@@ -3,12 +3,15 @@
 
 #include "pch.h"
 
-using namespace winrt;
-using namespace Windows::Foundation;
+void para_sample1( void );
+void map_sample( void );
+void map_sample2( void );
+void tuple_sample( void );
 
 int main()
 {
-    init_apartment();
-    Uri uri(L"http://aka.ms/cppwinrt");
-    printf("Hello, %ls!\n", uri.AbsoluteUri().c_str());
+    para_sample1();
+    map_sample();
+    map_sample2();
+    tuple_sample();
 }
