@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 
 #include <iostream>
 #include <vector>
@@ -47,12 +47,16 @@ void tuple_sample( void )
     std::cout << __func__ << std::endl;
 
     std::vector< elem3container< int, int, int > > vec;
-    vec.push_back( { 1, 2, 3 } );
-    for( auto[ x, y, z ] : vec )
-        printf( "%d %d %d\n", x, y, z );
+    vec.push_back( {   1, 0b0000'0001, 0x01 } );
+    vec.push_back( {  10, 0b0000'1010, 0x0a } );
+    vec.push_back( { 100, 0b0110'0100, 0x64 } );
+    for( auto[ dec, bin, hex ] : vec )
+        printf( "%8d %8d %04x\n", dec, bin, hex );
 
-    std::vector< elem3container< int, double, winrt::hstring > > vec2;
-    vec2.push_back( { 1, 3.14, L"hoge" } );
-    for( auto[ x, y, z ] : vec2 )
-        printf( "%d %f %s\n", x, y, winrt::to_string( z ).c_str() );
+    std::vector< elem3container< int, winrt::hstring, double > > vec2;
+    vec2.push_back( { 1, L"pi     ", 3.14159 } );
+    vec2.push_back( { 2, L"Napier ", 2.71828 } );
+    vec2.push_back( { 3, L"sqrt(2)", 1.41421 } );
+    for( auto[ idx, str, value ] : vec2 )
+        printf( "[%d] %s : %f\n", idx, winrt::to_string( str ).c_str(), value );
 }

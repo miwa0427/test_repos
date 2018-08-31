@@ -7,6 +7,7 @@ void para_sample1( void );
 void map_sample( void );
 void map_sample2( void );
 void tuple_sample( void );
+void lambda_sample();
 
 int main()
 {
@@ -14,4 +15,5 @@ int main()
     map_sample();
     map_sample2();
     tuple_sample();
+    lambda_sample();
 }
