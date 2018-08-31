@@ -1,17 +1,9 @@
-#include "pch.h"
+﻿#include "pch.h"
 
 #include <string>
 #include <iostream>
 #include <algorithm>
 #include <execution>
-
-std::string
-to_bool_str( bool b )
-{
-    // HStringからstd::string変換を試す
-    winrt::hstring hs = b ? L"true" : L"false";
-    return winrt::to_string( hs );
-}
 
 template < typename T, typename T2 >
 bool check_container_contents( T const & container, T2 pred )
@@ -29,25 +21,30 @@ void para_sample1( void )
     for( int i = 0; i < 100; i++ )
         vec.push_back( i );
 
-    auto less_than100 = []( auto x ){ return x < 100; };
-    auto is_even_num = []( auto x ){ return ( ( x % 2 ) == 0 ); };
-    auto is_odd_num = []( auto x ){ return ( ( x % 2 ) != 0 ); };
+    auto less_than100 = []( auto x ) noexcept { return x < 100; };
+    auto is_even_num = []( auto x ) noexcept { return ( ( x % 2 ) == 0 ); };
+    auto is_odd_num = []( auto x ) noexcept { return ( ( x % 2 ) != 0 ); };
+    auto bool2str = []( bool b ) noexcept {
+        // HStringからstd::string変換を試す
+        winrt::hstring hs = b ? L"true" : L"false";
+        return winrt::to_string( hs );
+    };
 
     std::cout << "コンテナ要素チェック" << std::endl;
-    printf( "less_than100 -> %s\n", to_bool_str( check_container_contents( vec, less_than100 ) ).c_str() );
-    printf( "is_even_num  -> %s\n", to_bool_str( check_container_contents( vec, is_even_num ) ).c_str() );
-    printf( "is_odd_num   -> %s\n", to_bool_str( check_container_contents( vec, is_odd_num ) ).c_str() );
+    printf( u8"less_than100 -> %s\n", bool2str( check_container_contents( vec, less_than100 ) ).c_str() );
+    printf( u8"is_even_num  -> %s\n", bool2str( check_container_contents( vec, is_even_num ) ).c_str() );
+    printf( u8"is_odd_num   -> %s\n", bool2str( check_container_contents( vec, is_odd_num ) ).c_str() );
 
     // 詰め直す
-    printf( "-----------------------------------------\n"
-            "コンテナ詰め直し\n"
-            "-----------------------------------------\n" );
+    std::cout << "-----------------------------------------" << std::endl;
+    std::cout << "コンテナ詰め直し" << std::endl;
+    std::cout << "-----------------------------------------" << std::endl;
     vec.clear();
     for( int i = 0; i < 100; i += 2 )
         vec.push_back( i );
 
-    printf( "less_than100 -> %s\n", to_bool_str( check_container_contents( vec, less_than100 ) ).c_str() );
-    printf( "is_even_num  -> %s\n", to_bool_str( check_container_contents( vec, is_even_num ) ).c_str() );
-    printf( "is_odd_num   -> %s\n", to_bool_str( check_container_contents( vec, is_odd_num ) ).c_str() );
+    printf( u8"less_than100 -> %s\n", bool2str( check_container_contents( vec, less_than100 ) ).c_str() );
+    printf( u8"is_even_num  -> %s\n", bool2str( check_container_contents( vec, is_even_num ) ).c_str() );
+    printf( u8"is_odd_num   -> %s\n", bool2str( check_container_contents( vec, is_odd_num ) ).c_str() );
 }
 
