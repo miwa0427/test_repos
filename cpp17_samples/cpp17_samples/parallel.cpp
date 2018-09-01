@@ -2,10 +2,12 @@
 
 #include <string>
 #include <iostream>
+#include <sstream>
+#include <iomanip>
 #include <algorithm>
 #include <execution>
 
-template < typename container_t , typename predicate >
+template < typename container_t, typename predicate >
 bool check_container_contents( container_t const & container, predicate pred )
 {
     return std::all_of( std::execution::par,
@@ -48,3 +50,24 @@ void para_sample1( void )
     printf( u8"is_odd_num   -> %s\n", bool2str( check_container_contents( vec, is_odd_num ) ).c_str() );
 }
 
+
+void para_sample2()
+{
+    std::vector< std::string > vec;
+    for( int i = 0; i < 100; i++ )
+        vec.push_back( std::to_string( i ) );
+
+    auto print_func = [ line_num = 0 ]( auto s ) mutable{
+        // C++の書式文字列の作成サンプル
+        std::stringstream format_string;
+        format_string << std::setw( 4 ) << std::setfill( '0' ) << line_num++ << ": " << s;
+        std::cout << format_string.str() << std::endl;
+    };
+
+    // 簡単に並列化出来るとはいえ、順序を守る必要があるケースでは当然バグる
+    std::cout << "\n\n\n=== paralell for_each ===" << std::endl;
+    std::for_each( std::execution::par, vec.begin(), vec.end(), print_func );
+    // こういう時は素直に直列処理にする
+    std::cout << "\n\n\n=== sequential for_each ===" << std::endl;
+    std::for_each( std::execution::seq, vec.begin(), vec.end(), print_func );
+}
