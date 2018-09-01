@@ -5,8 +5,8 @@
 #include <algorithm>
 #include <execution>
 
-template < typename T, typename T2 >
-bool check_container_contents( T const & container, T2 pred )
+template < typename container_t , typename predicate >
+bool check_container_contents( container_t const & container, predicate pred )
 {
     return std::all_of( std::execution::par,
                         std::begin( container ), std::end( container ),
