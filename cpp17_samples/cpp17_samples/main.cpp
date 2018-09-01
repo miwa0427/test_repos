@@ -14,6 +14,7 @@ void lambda_sample( void );
 void util_sample( void );
 void smart_ptr_sample( void );
 void fold_sample( void );
+void lambda_capture_sample();
 
 int main()
 {
@@ -38,4 +39,7 @@ int main()
 
     std::cout << "\n\n\n=== fold expression sample ===" << std::endl;
     fold_sample();
+
+    std::cout << "\n\n\n=== lambda capture sample ===" << std::endl;
+    lambda_capture_sample();
 }
