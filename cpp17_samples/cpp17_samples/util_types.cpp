@@ -1,6 +1,5 @@
 ﻿#include "pch.h"
 
-#include <iostream>
 #include <vector>
 #include <map>
 
@@ -23,7 +22,7 @@ void map_sample2( void )
     std::cout << __func__ << std::endl;
 
     struct tbl_t{
-        int num;
+        int num = 0;
         std::string s;
     };
 

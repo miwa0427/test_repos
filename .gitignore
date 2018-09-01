@@ -38,3 +38,9 @@
 Debug
 Release
 *.log
+Browse.VC.*db
+
+
+# test files
+test*.txt
+test*.log

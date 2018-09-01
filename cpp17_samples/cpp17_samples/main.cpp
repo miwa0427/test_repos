@@ -4,6 +4,7 @@
 #include "pch.h"
 
 #include <iostream>
+#include <string>
 
 void para_sample1( void );
 void map_sample( void );

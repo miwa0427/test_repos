@@ -6,10 +6,9 @@
 #include <chrono>
 #include <iomanip>
 
-#pragma warning( push )
-#pragma warning( disable : 4996 ) 
 void lambda_sample()
 {
+    // 任意の変数値を表示する関数を定義する
     auto print_value = []( auto val, std::string prefix = "=== ", std::string suffix = " ===" ) noexcept {
         std::cout << prefix << val << suffix << std::endl;
     };
@@ -20,11 +19,10 @@ void lambda_sample()
     // 時間変換のサンプル
     using std::chrono::system_clock;
     // 現在時刻を取得
-    auto cur_time_time_point   = system_clock::now();
+    auto cur_time_point   = system_clock::now();
     // std::chrono::system_clock::time_point -> std::time_t
-    auto cur_time_time_t       = system_clock::to_time_t( cur_time_time_point );
+    auto cur_time_t       = system_clock::to_time_t( cur_time_point );
     // std::time_t -> const tm*
-    auto cur_time_const_tm_ptr = std::localtime( &cur_time_time_t );
-    print_value( std::put_time( cur_time_const_tm_ptr, "%c" ), "只今の時間は", "です" );
+    auto cur_const_tm_ptr = std::localtime( &cur_time_t );
+    print_value( std::put_time( cur_const_tm_ptr, "%c" ), "只今の時間は", "です" );
 }
-#pragma warning( pop )
