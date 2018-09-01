@@ -10,9 +10,10 @@ void para_sample1( void );
 void map_sample( void );
 void map_sample2( void );
 void tuple_sample( void );
-void lambda_sample();
-void util_sample();
-void smart_ptr_sample();
+void lambda_sample( void );
+void util_sample( void );
+void smart_ptr_sample( void );
+void fold_sample( void );
 
 int main()
 {
@@ -34,4 +35,7 @@ int main()
 
     std::cout << "\n\n\n=== custom deleter sample ===" << std::endl;
     smart_ptr_sample();
+
+    std::cout << "\n\n\n=== fold expression sample ===" << std::endl;
+    fold_sample();
 }

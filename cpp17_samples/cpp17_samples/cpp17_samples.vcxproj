@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lambda.cpp" />
+    <ClCompile Include="lang_feature.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="parallel.cpp" />
     <ClCompile Include="pch.cpp">
