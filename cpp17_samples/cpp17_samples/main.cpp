@@ -48,4 +48,8 @@ int main()
     std::wcout << "\n\n\n=== lambda capture sample ===" << std::endl;
     lambda_capture_sample();
 #endif
+
+#ifdef FILESYTEM_SAMPLE
+    filesystem_sample();
+#endif
 }
