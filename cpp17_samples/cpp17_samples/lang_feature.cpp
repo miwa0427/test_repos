@@ -8,7 +8,7 @@ template < typename ... Types >
 auto strcat_plus( Types ... args )
 {
     auto to_str = []( auto p ){
-        return std::string( p );
+        return std::wstring( p );
     };
     return ( ... + to_str( args ) );
 }
@@ -20,19 +20,19 @@ void lambda_capture_sample()
     // キャプチャ環境で変更する場合はmutable指定が必要
     auto print_increased_i = [ i ]() mutable {
         i++; // mutable指定しないとコンパイルエラー
-        std::cout << "[capture]   i is " << i << std::endl;
+        std::wcout << L"[capture]   i is " << i << std::endl;
     };
     print_increased_i(); // i is 1
 
     // コピーキャプチャは呼び元の変数に影響を及ぼさない
-    std::cout << "[outer env] i is " << i << std::endl; // i is 0
+    std::wcout << L"[outer env] i is " << i << std::endl; // i is 0
 
     // 参照キャプチャーはiへの参照を扱うので、呼び元のiに対して変更が行える
     auto modify_i = [ & ](){
         i = 12345678;
     };
     modify_i();
-    std::cout << std::setbase( 10 ) << "[modified]  i is " << i << std::endl; // i is 12345678
+    std::wcout << std::setbase( 10 ) << L"[modified]  i is " << i << std::endl; // i is 12345678
 
     // 複数変数のコピーキャプチャ
     int x = 100;
@@ -64,6 +64,6 @@ void lambda_capture_sample()
 void fold_sample()
 {
     // 任意個数の文字列を結合するstrcat()
-    std::cout << strcat_plus( "one", "two", "three" ) << std::endl;
-    std::cout << strcat_plus( "Hello", "world.") << std::endl;
+    std::wcout << strcat_plus( L"one", L"two", L"three" ) << std::endl;
+    std::wcout << strcat_plus( L"Hello", L"world.") << std::endl;
 }

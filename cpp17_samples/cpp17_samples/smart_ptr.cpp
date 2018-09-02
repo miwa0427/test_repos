@@ -6,7 +6,7 @@
 void smart_ptr_sample()
 {
     auto custom_deleter = []( auto f ) noexcept{
-        std::cout << "file close" << std::endl;
+        std::wcout << "file close" << std::endl;
         if( f ) fclose( f );
     };
     // ファイルオープン失敗は考慮しない
