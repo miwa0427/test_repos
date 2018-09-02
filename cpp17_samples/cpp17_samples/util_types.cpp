@@ -5,7 +5,7 @@
 
 void map_sample( void )
 {
-    std::cout << __func__ << std::endl;
+    std::wcout << __func__ << std::endl;
 
     std::map< int, std::string > tbl
     {
@@ -19,7 +19,7 @@ void map_sample( void )
 
 void map_sample2( void )
 {
-    std::cout << __func__ << std::endl;
+    std::wcout << __func__ << std::endl;
 
     struct tbl_t{
         int num = 0;
@@ -43,7 +43,7 @@ struct elem3container{
 
 void tuple_sample( void )
 {
-    std::cout << __func__ << std::endl;
+    std::wcout << __func__ << std::endl;
 
     std::vector< elem3container< int, int, int > > vec;
     vec.push_back( {   1, 0b0000'0001, 0x01 } );

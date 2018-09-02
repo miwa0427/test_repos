@@ -17,7 +17,7 @@ bool check_container_contents( container_t const & container, predicate pred )
 
 void para_sample1( void )
 {
-    std::cout << __func__ << std::endl;
+    std::wcout << __func__ << std::endl;
 
     std::vector< int > vec;
     for( int i = 0; i < 100; i++ )
@@ -27,27 +27,27 @@ void para_sample1( void )
     auto is_even_num = []( auto x ) noexcept { return ( ( x % 2 ) == 0 ); };
     auto is_odd_num = []( auto x ) noexcept { return ( ( x % 2 ) != 0 ); };
     auto bool2str = []( bool b ) noexcept {
-        // HStringからstd::string変換を試す
+        // HStringからstd::wstring変換を試す
         winrt::hstring hs = b ? L"true" : L"false";
         return winrt::to_string( hs );
     };
 
-    std::cout << "コンテナ要素チェック" << std::endl;
-    printf( u8"less_than100 -> %s\n", bool2str( check_container_contents( vec, less_than100 ) ).c_str() );
-    printf( u8"is_even_num  -> %s\n", bool2str( check_container_contents( vec, is_even_num ) ).c_str() );
-    printf( u8"is_odd_num   -> %s\n", bool2str( check_container_contents( vec, is_odd_num ) ).c_str() );
+    std::wcout << "コンテナ要素チェック" << std::endl;
+    printf( "less_than100 -> %s\n", bool2str( check_container_contents( vec, less_than100 ) ).c_str() );
+    printf( "is_even_num  -> %s\n", bool2str( check_container_contents( vec, is_even_num ) ).c_str() );
+    printf( "is_odd_num   -> %s\n", bool2str( check_container_contents( vec, is_odd_num ) ).c_str() );
 
     // 詰め直す
-    std::cout << "-----------------------------------------" << std::endl;
-    std::cout << "コンテナ詰め直し" << std::endl;
-    std::cout << "-----------------------------------------" << std::endl;
+    std::wcout << "-----------------------------------------" << std::endl;
+    std::wcout << "コンテナ詰め直し" << std::endl;
+    std::wcout << "-----------------------------------------" << std::endl;
     vec.clear();
     for( int i = 0; i < 100; i += 2 )
         vec.push_back( i );
 
-    printf( u8"less_than100 -> %s\n", bool2str( check_container_contents( vec, less_than100 ) ).c_str() );
-    printf( u8"is_even_num  -> %s\n", bool2str( check_container_contents( vec, is_even_num ) ).c_str() );
-    printf( u8"is_odd_num   -> %s\n", bool2str( check_container_contents( vec, is_odd_num ) ).c_str() );
+    printf( "less_than100 -> %s\n", bool2str( check_container_contents( vec, less_than100 ) ).c_str() );
+    printf( "is_even_num  -> %s\n", bool2str( check_container_contents( vec, is_even_num ) ).c_str() );
+    printf( "is_odd_num   -> %s\n", bool2str( check_container_contents( vec, is_odd_num ) ).c_str() );
 }
 
 
@@ -58,10 +58,10 @@ void para_sample2()
         vec.push_back( std::to_string( i ) );
 
     auto print_func = [ line_num = 0 ]( auto s ) mutable{
-        // C++の書式文字列の作成サンプル
-        std::stringstream format_string;
-        format_string << std::setw( 4 ) << std::setfill( '0' ) << line_num++ << ": " << s;
-        std::cout << format_string.str() << std::endl;
+        char buf[ 256 ];
+        sprintf_s( buf, sizeof( buf ), "%04d: %s", line_num++, s.c_str() );
+        std::string ss( buf );
+        std::cout << ss << std::endl;
     };
 
     // 簡単に並列化出来るとはいえ、順序を守る必要があるケースでは当然バグる
