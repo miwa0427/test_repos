@@ -56,6 +56,9 @@
     <ClCompile Include="lang_feature.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="filesystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />

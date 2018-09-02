@@ -44,3 +44,4 @@ Browse.VC.*db
 # test files
 test*.txt
 test*.log
+test_dir

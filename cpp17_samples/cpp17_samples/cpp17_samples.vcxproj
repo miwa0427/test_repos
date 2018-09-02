@@ -97,6 +97,7 @@
     <ClInclude Include="select_sample.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="filesystem.cpp" />
     <ClCompile Include="lambda.cpp" />
     <ClCompile Include="lang_feature.cpp" />
     <ClCompile Include="main.cpp" />
