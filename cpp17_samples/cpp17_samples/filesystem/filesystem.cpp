@@ -18,7 +18,7 @@ void filesystem_sample( void )
                std::ostream_iterator< fs::path >( std::cout, "\n" ) );
     insert_separator();
 
-    std::wcout << "ディレクトリ情報表示( recursive_directory_iterator版 )" << std::endl;
+    std::wcout << "ディレクトリ情報表示( 範囲for文版 )" << std::endl;
     for( auto entry : recurse_dir_iter( "." ) )
         std::cout << entry.path() << std::endl;
     insert_separator();
@@ -36,8 +36,8 @@ void filesystem_sample( void )
     std::wcout << "ファイルコピー動作" << std::endl;
     auto dir_backup = R"(.\test_dir\backup\)";
     util_create_dir( dir_backup );
-    auto filter = [ dir_backup ]( fs::path base_path ) noexcept {
-        // 最初の条件文はバックアップディレクトリは除外する為のもの
+    auto filtered_backup = [ dir_backup ]( fs::path base_path ) noexcept {
+        // 最初の条件文はバックアップディレクトリを除外する為のもの
         if( !( std::regex_match( base_path.string(), std::regex( R"(.*test_dir.*)" ) ) ) && 
              ( base_path.extension().string() == ".cpp" ) )
         {
@@ -52,5 +52,5 @@ void filesystem_sample( void )
         }
     };
 
-    std::for_each( recurse_dir_iter( "." ), recurse_dir_iter(), filter );
+    std::for_each( recurse_dir_iter( "." ), recurse_dir_iter(), filtered_backup );
 }
