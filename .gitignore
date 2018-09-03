@@ -39,7 +39,9 @@ Debug
 Release
 *.log
 Browse.VC.*db
-
+.sqlite
+.vscode
+.vs
 
 # test files
 test*.txt

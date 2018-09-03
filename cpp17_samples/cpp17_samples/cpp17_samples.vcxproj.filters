@@ -71,6 +71,9 @@
     <ClCompile Include="parallels\parallel.cpp">
       <Filter>Source Files\samples\parallels</Filter>
     </ClCompile>
+    <ClCompile Include="util\datetime.cpp">
+      <Filter>Source Files\samples\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />

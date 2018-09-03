@@ -17,8 +17,6 @@ bool check_container_contents( container_t const & container, predicate pred )
 
 void para_sample1( void )
 {
-    std::wcout << __func__ << std::endl;
-
     std::vector< int > vec;
     for( int i = 0; i < 100; i++ )
         vec.push_back( i );
