@@ -4,21 +4,12 @@
 #include <ostream>
 #include <iomanip>
 
-template < typename ... Types >
-auto strcat_plus( Types ... args )
-{
-    auto to_str = []( auto p ){
-        return std::wstring( p );
-    };
-    return ( ... + to_str( args ) );
-}
-
 void lambda_capture_sample()
 {
     int i = 0;
-    // コピーキャプチャ変数はデフォルトでconst扱いなので、
+    // コピーキャプチャ([=])変数はデフォルトでconst扱いなので、
     // キャプチャ環境で変更する場合はmutable指定が必要
-    auto print_increased_i = [ i ]() mutable {
+    auto print_increased_i = [=]() mutable {
         i++; // mutable指定しないとコンパイルエラー
         std::wcout << L"[capture]   i is " << i << std::endl;
     };
@@ -27,7 +18,7 @@ void lambda_capture_sample()
     // コピーキャプチャは呼び元の変数に影響を及ぼさない
     std::wcout << L"[outer env] i is " << i << std::endl; // i is 0
 
-    // 参照キャプチャーはiへの参照を扱うので、呼び元のiに対して変更が行える
+    // 参照キャプチャー([&])はiへの参照を扱うので、呼び元のiに対して変更が行える
     auto modify_i = [ & ](){
         i = 12345678;
     };
@@ -43,7 +34,8 @@ void lambda_capture_sample()
     };
     copy_capture(); // -> 100 200 300
 
-    // 複数変数の参照キャプチャ。参照なので呼び元の変数を変更する
+    // 複数変数の参照キャプチャ(初期化ラムダキャプチャーはC++14の機能)
+    // 参照なので呼び元の変数を変更する
     auto ref_capture = [ &ref_x = x, &ref_y = y, &ref_z = z ] {
         // キャプチャ元変数の参照なので、int x,y,zの値を変更する
         ref_x *= 2;
@@ -61,9 +53,22 @@ void lambda_capture_sample()
     copy_capture(); // -> 100 200 300
 }
 
+template < typename ... Types >
+auto strcat_plus( Types ... args )
+{
+    auto to_str = []( auto p ){
+        return std::wstring( p );
+    };
+    return ( ... + to_str( args ) );
+}
+
 void fold_sample()
 {
     // 任意個数の文字列を結合するstrcat()
-    std::wcout << strcat_plus( L"one", L"two", L"three" ) << std::endl;
-    std::wcout << strcat_plus( L"Hello", L"world.") << std::endl;
+    std::wcout << strcat_plus( L"only one" ) << std::endl;
+    std::wcout << strcat_plus( L"Hello ", L"world." ) << std::endl;
+    std::wcout << strcat_plus( L"one ", L"two ", L"three" ) << std::endl;
+    std::wcout << strcat_plus( L"The ", L"quick ", L"brown ", L"fox ",
+                               L"jumps ", L"over ", L"the ", L"lazy ",
+                               L"dog " ) << std::endl;
 }

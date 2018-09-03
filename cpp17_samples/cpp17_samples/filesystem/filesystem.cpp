@@ -9,7 +9,9 @@ void filesystem_sample( void )
 {
     namespace fs = std::filesystem;
     using recurse_dir_iter = fs::recursive_directory_iterator;
-    auto insert_separator = []{ std::cout << "\n-------------------------------------------------\n"; };
+    auto insert_separator = []{
+        std::cout << "\n-------------------------------------------------\n";
+    };
 
     std::wcout << "ディレクトリ情報表示( std::copy()版 )" << std::endl;
     std::copy( recurse_dir_iter( "." ), recurse_dir_iter(),
@@ -21,22 +23,23 @@ void filesystem_sample( void )
         std::cout << entry.path() << std::endl;
     insert_separator();
 
-    std::wcout << "ディレクトリ作成( ./test_dir/a/b/c )" << std::endl;
-    fs::path dir_name( "./test_dir/a/b/c" );
-    if( !fs::exists( dir_name ) )
-        fs::create_directories( dir_name );
+    // パス文字列を表示する為、Raw文字列を試す
+    std::wcout << R"***(ディレクトリ作成( .\test_dir\a\b\c ))***" << std::endl;
+    auto util_create_dir = []( auto dirname ){
+        fs::path dir_path( dirname );
+        if( !fs::exists( dir_path ) )
+            fs::create_directories( dir_path );
+    };
+    util_create_dir( R"(.\test_dir\a\b\c)" );
     insert_separator();
 
     std::wcout << "ファイルコピー動作" << std::endl;
-    auto backup_dirname = "./test_dir/backup";
-    fs::path dir_backup( backup_dirname );
-    if( !fs::exists( dir_backup ) )
-        fs::create_directory( dir_backup );
-    fs::directory_iterator cur_start( "." ), cur_end;
+    auto dir_backup = R"(.\test_dir\backup\)";
+    util_create_dir( dir_backup );
     auto filter = [ dir_backup ]( fs::path base_path ) noexcept {
-        // 正規表現での拡張子マッチはこんな感じ
-        // if( std::regex_match( path.string(), std::regex( ".*cpp$" ) ) )
-        if( base_path.extension().string() == ".cpp" )
+        // 最初の条件文はバックアップディレクトリは除外する為のもの
+        if( !( std::regex_match( base_path.string(), std::regex( R"(.*test_dir.*)" ) ) ) && 
+             ( base_path.extension().string() == ".cpp" ) )
         {
             std::cout << "[copy]" << base_path << " -> " << dir_backup << std::endl;
             std::error_code  fs_err;
@@ -48,5 +51,6 @@ void filesystem_sample( void )
             }
         }
     };
-    std::for_each( cur_start, cur_end, filter );
+
+    std::for_each( recurse_dir_iter( "." ), recurse_dir_iter(), filter );
 }

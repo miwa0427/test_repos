@@ -31,6 +31,11 @@ int main()
     lambda_sample();
 #endif
 
+#ifdef TIME_SAMPLE
+    std::wcout << L"\n\n\n=== datetime sample ===" << std::endl;
+    time_sample();
+#endif
+
 #ifdef UTIL_SAMPLE
     std::wcout << L"\n\n\n=== addressof sample ===" << std::endl;
     util_sample();

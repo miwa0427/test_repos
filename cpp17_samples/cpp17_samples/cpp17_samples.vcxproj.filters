@@ -22,6 +22,18 @@
     <Filter Include="Source Files\samples\fs">
       <UniqueIdentifier>{2f0e2760-40d9-4fdd-aeed-5a8978619244}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\samples\util">
+      <UniqueIdentifier>{4562d7c6-1b50-499f-85e3-8b3ce7baa811}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\samples\memory">
+      <UniqueIdentifier>{048dc27b-293e-4e1e-9c75-78d439052944}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\samples\lang_feature">
+      <UniqueIdentifier>{3511f572-665a-4d8d-a3a7-0eee04059398}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\samples\functional">
+      <UniqueIdentifier>{a099ffae-84d1-4a5f-b395-b565454911a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -38,26 +50,29 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="parallel.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="filesystem\filesystem.cpp">
+      <Filter>Source Files\samples\fs</Filter>
     </ClCompile>
-    <ClCompile Include="util_types.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="memory\smart_ptr.cpp">
+      <Filter>Source Files\samples\memory</Filter>
     </ClCompile>
-    <ClCompile Include="lambda.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="lang_feature\lang_feature.cpp">
+      <Filter>Source Files\samples\lang_feature</Filter>
     </ClCompile>
-    <ClCompile Include="util.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="functional\lambda.cpp">
+      <Filter>Source Files\samples\functional</Filter>
     </ClCompile>
-    <ClCompile Include="smart_ptr.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="util\util.cpp">
+      <Filter>Source Files\samples\util</Filter>
     </ClCompile>
-    <ClCompile Include="lang_feature.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="util\util_types.cpp">
+      <Filter>Source Files\samples\util</Filter>
     </ClCompile>
-    <ClCompile Include="filesystem.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="parallels\parallel.cpp">
+      <Filter>Source Files\samples\parallels</Filter>
+    </ClCompile>
+    <ClCompile Include="util\datetime.cpp">
+      <Filter>Source Files\samples\util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

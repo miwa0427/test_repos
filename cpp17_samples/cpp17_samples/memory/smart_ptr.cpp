@@ -5,9 +5,10 @@
 
 void smart_ptr_sample()
 {
-    auto custom_deleter = []( auto f ) noexcept{
+    auto custom_deleter = []( auto f ) noexcept {
         std::wcout << "file close" << std::endl;
-        if( f ) fclose( f );
+        if( f )
+            fclose( f );
     };
     // ファイルオープン失敗は考慮しない
     std::shared_ptr< FILE > pf( fopen( "test_custom_deleter.txt", "wt" ), custom_deleter );

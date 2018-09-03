@@ -5,10 +5,7 @@
 
 void map_sample( void )
 {
-    std::wcout << __func__ << std::endl;
-
-    std::map< int, std::string > tbl
-    {
+    std::map< int, std::string > tbl{
         { 1, "one" },
         { 2, "two" },
         { 3, "three" },
@@ -19,17 +16,16 @@ void map_sample( void )
 
 void map_sample2( void )
 {
-    std::wcout << __func__ << std::endl;
-
     struct tbl_t{
         int num = 0;
         std::string s;
     };
 
-    tbl_t tbl[ 3 ];
-    tbl[ 0 ] = { 1, "one" };
-    tbl[ 1 ] = { 2, "two" };
-    tbl[ 2 ] = { 3, "three" };
+    tbl_t tbl[ 3 ]{
+        { 1, "one" },
+        { 2, "two" },
+        { 3, "three" },
+    };
     for( auto[ num, s ] : tbl )
         printf( "%2d : %s\n", num, s.c_str() );
 }
@@ -46,8 +42,8 @@ void tuple_sample( void )
     std::wcout << __func__ << std::endl;
 
     std::vector< elem3container< int, int, int > > vec;
-    vec.push_back( {   1, 0b0000'0001, 0x01 } );
-    vec.push_back( {  10, 0b0000'1010, 0x0a } );
+    vec.push_back( { 1, 0b0000'0001, 0x01 } );
+    vec.push_back( { 10, 0b0000'1010, 0x0a } );
     vec.push_back( { 100, 0b0110'0100, 0x64 } );
     for( auto[ dec, bin, hex ] : vec )
         printf( "%8d %8d %04x\n", dec, bin, hex );
