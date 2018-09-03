@@ -42,6 +42,7 @@ Browse.VC.*db
 .sqlite
 .vscode
 .vs
+*TemporaryKey.pfx
 
 # test files
 test*.txt

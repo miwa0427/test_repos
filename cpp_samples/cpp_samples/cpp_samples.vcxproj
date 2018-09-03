@@ -5,9 +5,9 @@
     <RequiredBundles>$(RequiredBundles);Microsoft.Windows.CppWinRT</RequiredBundles>
     <MinimalCoreWin>true</MinimalCoreWin>
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{2698abe3-43df-4d86-8896-8adc2822eac1}</ProjectGuid>
+    <ProjectGuid>{dca3ee17-0257-4424-9019-94bd205cb919}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>cpp17_samples</RootNamespace>
+    <RootNamespace>cpp_samples</RootNamespace>
     <WindowsTargetPlatformVersion Condition=" '$(WindowsTargetPlatformVersion)' == '' ">10.0.17134.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformMinVersion>10.0.17134.0</WindowsTargetPlatformMinVersion>
   </PropertyGroup>
@@ -111,6 +111,7 @@
     <ClCompile Include="util\datetime.cpp" />
     <ClCompile Include="util\util.cpp" />
     <ClCompile Include="util\util_types.cpp" />
+    <ClCompile Include="winrt\winrt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt">

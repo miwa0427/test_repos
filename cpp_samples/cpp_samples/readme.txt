@@ -1,5 +1,5 @@
 ========================================================================
-    C++/WinRT cpp17_samples Project Overview
+    C++/WinRT cpp_samples Project Overview
 ========================================================================
 
 This project demonstrates how to get started consuming Windows Runtime 

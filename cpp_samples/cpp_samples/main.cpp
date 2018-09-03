@@ -57,4 +57,8 @@ int main()
 #ifdef FILESYTEM_SAMPLE
     filesystem_sample();
 #endif
+
+#ifdef WIN_RT_SAMPLE
+    winrt_sample();
+#endif
 }

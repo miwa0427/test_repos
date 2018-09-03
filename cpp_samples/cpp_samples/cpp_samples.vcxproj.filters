@@ -34,6 +34,12 @@
     <Filter Include="Source Files\samples\functional">
       <UniqueIdentifier>{a099ffae-84d1-4a5f-b395-b565454911a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\boost_samples">
+      <UniqueIdentifier>{27ecaee8-6665-44e9-a86c-1f9d6b003a5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\samples\winrt">
+      <UniqueIdentifier>{27961745-af30-48a6-9bf3-0b1bd9de3cb3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -73,6 +79,9 @@
     </ClCompile>
     <ClCompile Include="util\datetime.cpp">
       <Filter>Source Files\samples\util</Filter>
+    </ClCompile>
+    <ClCompile Include="winrt\winrt.cpp">
+      <Filter>Source Files\samples\winrt</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
