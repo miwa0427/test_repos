@@ -97,17 +97,17 @@
     <ClInclude Include="select_sample.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="filesystem.cpp" />
-    <ClCompile Include="lambda.cpp" />
-    <ClCompile Include="lang_feature.cpp" />
+    <ClCompile Include="filesystem\filesystem.cpp" />
+    <ClCompile Include="functional\lambda.cpp" />
+    <ClCompile Include="lang_feature\lang_feature.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="parallel.cpp" />
+    <ClCompile Include="memory\smart_ptr.cpp" />
+    <ClCompile Include="parallels\parallel.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="smart_ptr.cpp" />
-    <ClCompile Include="util.cpp" />
-    <ClCompile Include="util_types.cpp" />
+    <ClCompile Include="util\util.cpp" />
+    <ClCompile Include="util\util_types.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt">
