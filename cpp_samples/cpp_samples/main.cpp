@@ -55,10 +55,19 @@ int main()
 #endif
 
 #ifdef FILESYTEM_SAMPLE
+    std::wcout << L"\n\n\n=== FileSystem sample ===" << std::endl;
     filesystem_sample();
 #endif
 
+#ifdef BOOST_SAMPLE
+#ifdef BOOST_LOG_SAMPLE
+    std::wcout << L"\n\n\n=== [Boost] logging sample ===" << std::endl;
+    boost_logging_sample();
+#endif
+#endif
+
 #ifdef WIN_RT_SAMPLE
+    std::wcout << L"\n\n\n=== [WinRT] sample ===" << std::endl;
     winrt_sample();
 #endif
 }

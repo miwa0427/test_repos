@@ -13,32 +13,29 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\samples">
-      <UniqueIdentifier>{b97e37cd-1163-43d9-9c62-668935e26fce}</UniqueIdentifier>
+    <Filter Include="Source Files\parallels">
+      <UniqueIdentifier>{7bbb3535-b8b0-4340-b9bd-97eaf02e3ffd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\samples\parallels">
-      <UniqueIdentifier>{3811e300-5d23-4e38-9d82-9192978b638d}</UniqueIdentifier>
+    <Filter Include="Source Files\fs">
+      <UniqueIdentifier>{716aac9e-2942-4877-b9e0-13fcc543fc4c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\samples\fs">
-      <UniqueIdentifier>{2f0e2760-40d9-4fdd-aeed-5a8978619244}</UniqueIdentifier>
+    <Filter Include="Source Files\util">
+      <UniqueIdentifier>{57fe8031-243b-4a8a-a59a-471acb64c492}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\samples\util">
-      <UniqueIdentifier>{4562d7c6-1b50-499f-85e3-8b3ce7baa811}</UniqueIdentifier>
+    <Filter Include="Source Files\memory">
+      <UniqueIdentifier>{24d48a18-b71b-4672-8e9d-e6c84d9857a2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\samples\memory">
-      <UniqueIdentifier>{048dc27b-293e-4e1e-9c75-78d439052944}</UniqueIdentifier>
+    <Filter Include="Source Files\lang_feature">
+      <UniqueIdentifier>{c3d17aab-046f-4e4f-a69a-ba08179ec583}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\samples\lang_feature">
-      <UniqueIdentifier>{3511f572-665a-4d8d-a3a7-0eee04059398}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\samples\functional">
-      <UniqueIdentifier>{a099ffae-84d1-4a5f-b395-b565454911a3}</UniqueIdentifier>
+    <Filter Include="Source Files\functional">
+      <UniqueIdentifier>{0b7796ad-12c6-43bd-8c90-a7b66894b628}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\boost_samples">
-      <UniqueIdentifier>{27ecaee8-6665-44e9-a86c-1f9d6b003a5e}</UniqueIdentifier>
+      <UniqueIdentifier>{f43330f7-33ba-4cb1-b809-e8a6de7665da}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\samples\winrt">
-      <UniqueIdentifier>{27961745-af30-48a6-9bf3-0b1bd9de3cb3}</UniqueIdentifier>
+    <Filter Include="Source Files\winrt">
+      <UniqueIdentifier>{c621d7ad-69b7-42b6-8687-cbcfb6bdea92}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -57,31 +54,34 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="filesystem\filesystem.cpp">
-      <Filter>Source Files\samples\fs</Filter>
+      <Filter>Source Files\fs</Filter>
     </ClCompile>
     <ClCompile Include="memory\smart_ptr.cpp">
-      <Filter>Source Files\samples\memory</Filter>
+      <Filter>Source Files\memory</Filter>
     </ClCompile>
     <ClCompile Include="lang_feature\lang_feature.cpp">
-      <Filter>Source Files\samples\lang_feature</Filter>
+      <Filter>Source Files\lang_feature</Filter>
     </ClCompile>
     <ClCompile Include="functional\lambda.cpp">
-      <Filter>Source Files\samples\functional</Filter>
+      <Filter>Source Files\functional</Filter>
     </ClCompile>
-    <ClCompile Include="util\util.cpp">
-      <Filter>Source Files\samples\util</Filter>
-    </ClCompile>
-    <ClCompile Include="util\util_types.cpp">
-      <Filter>Source Files\samples\util</Filter>
-    </ClCompile>
-    <ClCompile Include="parallels\parallel.cpp">
-      <Filter>Source Files\samples\parallels</Filter>
+    <ClCompile Include="boost\logging.cpp">
+      <Filter>Source Files\boost_samples</Filter>
     </ClCompile>
     <ClCompile Include="util\datetime.cpp">
-      <Filter>Source Files\samples\util</Filter>
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\util.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\util_types.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="parallels\parallel.cpp">
+      <Filter>Source Files\parallels</Filter>
     </ClCompile>
     <ClCompile Include="winrt\winrt.cpp">
-      <Filter>Source Files\samples\winrt</Filter>
+      <Filter>Source Files\winrt</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

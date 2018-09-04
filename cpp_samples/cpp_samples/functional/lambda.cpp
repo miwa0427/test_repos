@@ -1,9 +1,5 @@
 ﻿#include "pch.h"
 
-#include <ctime>
-#include <chrono>
-#include <iomanip>
-
 void lambda_sample( void )
 {
     // 任意の変数値を表示する関数を定義する
