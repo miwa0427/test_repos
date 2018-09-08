@@ -64,6 +64,16 @@ int main()
     std::wcout << L"\n\n\n=== [Boost] logging sample ===" << std::endl;
     boost_logging_sample();
 #endif
+
+#ifdef BOOST_CREATE_ITER_SAMPLE
+    std::wcout << L"\n\n\n=== [Boost] create iterator sample ===" << std::endl;
+    boost_create_iter_sample();
+#endif
+
+#ifdef BOOST_LOCK_FREE_CONTAINER_SAMPLE
+    std::wcout << L"\n\n\n=== [Boost] lock free container sample ===" << std::endl;
+    boost_lock_free_container_sample();
+#endif
 #endif
 
 #ifdef WIN_RT_SAMPLE
