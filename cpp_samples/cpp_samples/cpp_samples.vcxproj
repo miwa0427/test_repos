@@ -101,6 +101,8 @@
     <ClInclude Include="select_sample.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="boost\create_iter.cpp" />
+    <ClCompile Include="boost\lock_free_container.cpp" />
     <ClCompile Include="boost\logging.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
